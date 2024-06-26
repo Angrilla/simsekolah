@@ -14,6 +14,17 @@ class Student extends Model
         'nis',
         'name',
         'birth_date',
+        'jurusan_id'
     ];
+
+    /**
+     * Get the user that owns the Student
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class, 'id');
+    }
 
 }

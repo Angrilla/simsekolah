@@ -1,9 +1,10 @@
 @extends('template')
 @section('content')
 <main class="container" style="margin-top: 30px">
-    <form action="/student/{{$student->id}}" method="PUT">
+    <form action="/student/{{$student->id}}" method="POST">
         <input type="hidden" name="_method" value="PUT">
         @csrf
+        {{-- @method('PUT') --}}
     <div class="p-5 rounded">
       <h1>Edit Siswa</h1>
       <hr>
@@ -18,7 +19,13 @@
         </tr>
         <tr>
             <td>Jurusan</td>
-            <td><input type="text" name="jurusan" value="{{$student->jurusan}}" placeholder="nama" class="form-control"></td>
+            <td><select name="jurusan_id" class="form-control">
+                <option value="0">Pilih Data</option>
+                @foreach ($jurusan as $item)
+                    <option value="{{$item->id}}">{{$item->nama_jurusan}}</option>
+                @endforeach
+            </select></td>
+
         </tr>
         <tr>
             <td>Tanggal Lahir</td>

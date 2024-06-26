@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <td>Jurusan</td>
-          <td><select name="jurusanname" class="form-control">
+          <td><select name="jurusan_id" class="form-control">
               <option value="0">Pilih Data</option>
               @foreach ($jurusan as $item)
                   <option value="{{$item->id}}">{{$item->nama_jurusan}}</option>

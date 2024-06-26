@@ -15,13 +15,16 @@
                 <th>Nomor</th>
                 <th>NIS</th>
                 <th>Nama</th>
+                <th>Jurusan</th>
                 <th>Tanggal Lahir</th>
+                <th colspan="2" class="text-center">Aksi</th>
             </tr>
             @foreach($students as $student)
         <tr>
             <td>{{ $loop->iteration}}</td>
             <td>{{ $student->nis}}</td>
             <td>{{ $student->name}}</td>
+            <td>{{ $student->jurusan->nama_jurusan}}</td>
             <td>{{ $student->birth_date}}</td>
             <td>
               <a href="/student/{{ $student->id }}/edit" class="btn btn-danger">Edit</a>
