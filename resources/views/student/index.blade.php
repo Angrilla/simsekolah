@@ -5,6 +5,11 @@
           <h1>Daftar Siswa</h1>
           <a class="btn btn-danger" href="/student/create">Tambah Siswa Baru</a>
           <hr>
+          @if(session('message')!='')
+      <div class="alert alert-primary" role="alert">
+        {{ session('message') }}
+      </div>
+      @endif
           <table class="table table-bordered">
             <tr>
                 <th>Nomor</th>
@@ -12,18 +17,24 @@
                 <th>Nama</th>
                 <th>Tanggal Lahir</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>TI002</td>
-                <td>Nuris Akbar</td>
-                <td>1999-01-01</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>TI002</td>
-                <td>Asep Sahruddin</td>
-                <td>1999-01-02</td>
-            </tr>
+            @foreach($students as $student)
+        <tr>
+            <td>{{ $loop->iteration}}</td>
+            <td>{{ $student->nis}}</td>
+            <td>{{ $student->name}}</td>
+            <td>{{ $student->birth_date}}</td>
+            <td>
+              <a href="/student/{{ $student->id }}/edit" class="btn btn-danger">Edit</a>
+          </td>
+          <td>
+              <form action="/student/delete/{{ $student->id }}" method="post">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-primary">Delete</button>
+              </form>
+           </td>
+        </tr>
+        @endforeach
           </table>
         </div>
       </main>
