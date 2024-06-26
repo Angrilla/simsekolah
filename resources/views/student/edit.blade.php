@@ -17,6 +17,10 @@
             <td><input type="text" name="name" value="{{$student->name}}" placeholder="nama" class="form-control"></td>
         </tr>
         <tr>
+            <td>Jurusan</td>
+            <td><input type="text" name="jurusan" value="{{$student->jurusan}}" placeholder="nama" class="form-control"></td>
+        </tr>
+        <tr>
             <td>Tanggal Lahir</td>
             <td><input type="date" name="birth_date" value="{{$student->birth_date}}" placeholder="Tanggal Lahir" class="form-control"></td>
         </tr>

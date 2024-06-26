@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Jurusan;
 
 class StudentController extends Controller
 {
@@ -40,7 +41,8 @@ class StudentController extends Controller
         // $student->birth_date = $request->birth_date;
         // $student->save();
         // return view('student.create');
-        return view('student.create');
+        $data['jurusan'] = Jurusan::all();
+        return view('student.create', $data);
     }
 
     public function edit($id)
